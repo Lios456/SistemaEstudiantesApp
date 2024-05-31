@@ -39,6 +39,25 @@ public class Main {
         switch (op){
             case 1 ->{
                 System.out.println("AGREGAR ESTUDIANTE");
+
+                System.out.println("Nombre:");
+                consola.nextLine();//limpiar el buffer
+                String nombre = consola.nextLine();
+
+                System.out.println("Apellido:");
+                String apellido = consola.nextLine();
+
+                System.out.println("Teléfono:");
+                String telefono = consola.nextLine();
+
+                System.out.println("Email:");
+                String email = consola.nextLine();
+                try{
+                    dao.agregarEstudiante(new Estudiante(nombre, apellido, telefono, email));
+                }catch (Exception ex){
+                    System.out.println(ex.getMessage());
+                }
+
             }
             case 2 ->{
                 System.out.println("LISTAR ESTUDIANTES");
@@ -46,9 +65,15 @@ public class Main {
             }
             case 3->{
                 System.out.println("BUSCAR ESTUDIANTE");
+                System.out.print("ID:");
+                int id = consola.nextInt();
+                dao.buscar(new Estudiante(id));
             }
             case 4->{
                 System.out.println("ELIMINAR ESTUDIANTE");
+                System.out.print("ID:");
+                int id = consola.nextInt();
+                dao.buscar(new Estudiante(id));
             }
             case 5->{
                 System.out.println("SALIENDO...");
